@@ -65,12 +65,10 @@ export const bookingResponses = z
     name: z.string(),
     guests: z.array(z.string()).optional(),
     notes: z.string().optional(),
-    location: z
-      .object({
-        optionValue: z.string(),
-        value: z.string(),
-      })
-      .optional(),
+    location: z.object({
+      optionValue: z.string(),
+      value: z.string(),
+    }),
     smsReminderNumber: z.string().optional(),
     rescheduleReason: z.string().optional(),
   })
@@ -204,7 +202,7 @@ export const bookingCreateSchemaLegacyPropsForApi = z.object({
   name: z.string(),
   guests: z.array(z.string()).optional(),
   notes: z.string().optional(),
-  location: z.string().optional(),
+  location: z.string(),
   smsReminderNumber: z.string().optional().nullable(),
   rescheduleReason: z.string().optional(),
   customInputs: z.array(z.object({ label: z.string(), value: z.union([z.string(), z.boolean()]) })),
